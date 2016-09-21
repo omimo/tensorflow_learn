@@ -4,6 +4,7 @@
 
 import tensorflow as tf
 
+# Download/load the MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
@@ -40,4 +41,6 @@ for i in range(1000):
     if (i % 50 == 0): 
         correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
         accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
-        print '%d: %f' %(i, sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
+        print 'epoch %d, train accuracy = %f' %(i, sess.run(accuracy, feed_dict={x: batch_xs, y_: batch_ys}))
+
+print 'final test accuracy = %f' %(sess.run(accuracy, feed_dict={x: mnist.test.images, y_: mnist.test.labels}))
