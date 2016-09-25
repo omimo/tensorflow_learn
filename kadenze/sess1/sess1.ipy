@@ -1,0 +1,173 @@
+# coding: utf-8
+history
+%dhist
+%history
+%history
+%hist
+%pylab
+plt.style.use('ggplot')
+from libs import utils
+files = utils.get_celeb_files()
+img = plt.imread(files[50])
+ls
+imshow(img[:,:,0], cmap='gray')
+imshow(img[:,:,1], cmap='gray')
+imshow(img[:,:,3], cmap='gray')
+imshow(img[:,:,2], cmap='gray')
+imgs = utils.get_celeb_imgs()
+plt.imshow(imgs[0])
+data = np.array(imgs)
+data.shape
+imgs
+imgs.shape
+imgs?
+data?
+mean_img = np.mean(data, axis = 0)
+imshow(mean_img)
+imshow(mean_img.astype(np.uint8))
+std_img = np.std(data, axis = 0)
+imshow(std_img.astype(np.uint8))
+imshow(np.mean(std_img, axis=2).astype(np.uint8))
+flattened = data.ravel()
+flattened.shape
+hist(flattened,255)
+plt.hist(flattened,255)
+plt.close('all')
+plt.hist(flattened,255)
+plt.hist(flattened.ravel(),255)
+flattened.shape
+flattened.ravel()shape
+flattened.ravel().shape
+bins = 20
+fig, axs = plt.subplots(1, 3, figsize=(12,6), sharey=True, sharex=True)
+axs[0].hist((data[0]).ravel(), bins)
+axs[0].set_title('img distribution')
+axs[1].hist((mean_img).ravel(),bins)
+axs[1].set_title('mean distribution')
+axs[2].hist((data[0] - mean_img).ravel(),bins)
+axs[2].set_title('img - mean distribution')
+fig, axs = plt.subplots(1, 3, figsize=(12,6), sharey=True, sharex=True)
+axs[0].hist((data[0] - mean_img).ravel(),bins)
+axs[0].set_title('img - mean distribution')
+axs[2].hist((data[0]swswdwdwddwdwdwdwsdsdsdsdddwddededwd - medsddwdwdwas_img).ravel(),bins)
+axs[1].hist((std_img).ravel(),bins)
+axs[1].set_title('std distribution')
+axs[2].hist(((data[0] - mean_img)/std_img).ravel(),bins)
+axs[2].set_title('norm distribution')
+axs[2].set_xlim([-10,10])
+%save sess1_p1_7
+%save?
+%save -r sess1_p1_7
+%history
+%hist
+%save -r sess1_p1_7 1 62
+%save -r sess1_p1_7 1-62
+plt.close('all')
+import tensorflow as tf
+x = np.linespace(-3.0, 3.0, 100)
+import numpy as np
+x = np.linespace(-3.0, 3.0, 100)
+x = np.linspace(-3.0, 3.0, 100)
+x.shape
+x = tf.linspace(-3.0, 3.0, 100)
+x
+print(x)
+g = tf.get_default_graph()
+[op.name for op in g.get_operations()]
+g.get_tensor_by_name('linSpace' + ':0')
+g.get_tensor_by_name('LinSpace' + ':0')
+print(x)
+sess = tf.Session()
+computed_x = sess.run(x)
+print(computed_x)
+computed_x = x.eval(session=sess)
+print(computed_x)
+sess.close()
+sess = tf.Sessin(graph = tf.get_default_graph())
+sess = tf.Session(graph = tf.get_default_graph())
+sess.close()
+sess = tf.InteractiveSession()
+x.eval()
+x.get_shape()
+x.get_shape().as_list()
+mean = 0
+sigma = 1.0
+z = (tf.exp(tf.neg(tf.pow(x-mean, 2.0) /
+(2.0 * tf.pow(sigma, 2.0))))) * (1.0 / (sigma * tf.sqrt(2.0 * 3.141592))))
+z = (tf.exp(tf.neg(tf.pow(x-mean, 2.0) /
+(2.0 * tf.pow(sigma, 2.0))))) * (1.0 / (sigma * tf.sqrt(2.0 * 3.141592)))
+z.eval()
+plt.plot(z.eval)
+res = z.eval()
+plt.plot(res)
+ksize = z.get_shape().as_list()[0]
+ksize
+z_2d = tf.matmul(tf.reshape(z, [ksize, 1]), tf.reshape(z, [1, ksize]))
+imshow(z_2d.eval())
+from skimage import dataa
+from skimage import data
+img = data.camera().astype(np.float32)
+plt.imshow(img)
+plt.imshow(img)
+plt.imshow(img, cmap='gray')
+print(img.shape)
+img_3d = img.reshape([1, img.shape[0], img.shape[1], 1])
+print(img_3d.shape)
+img_4d = tf.reshape(img, [1, img.shape[0], img.shape[1], 1])
+img_4d.get_shape()
+img_4d.get_shape().as_list()
+z_4d = tf.reshape(z_2d, [ksize, ksize, 1, 1])
+convolved = tf.nn.conv2d(img_4d, z_4d, strides=[1, 1, 1, 1], padding='SAME') 
+res = convolve.eval()
+res = convolved.eval()
+plt.imshow(np.squeeze(res), cmap='gray')
+plt.imshow(res[0,:,:,0], cmap='gray')
+plt.imshow(res[0,:,:,0], cmap='gray')
+xs = tf.linspace(-3.0, 3.0, ksize)
+ys = tf.sin(xs)
+plt.figure()
+plt.plot(ys.eval())
+ys = tf.reshape(ys, [ksize,1])
+ones = tf.ones((1, ksize))
+wave  = tf.matmul(ys, ones)
+imshow(wave.eval())
+gabor = tf.mul(wave, z_2d)
+imshow(gabor.eval())
+img = tf.placeholder(tf.float32, shape=[None, None], name='img_ph')
+img
+img_3d = tf.expand_dims(img, 2)
+dims = img_3d.get_shape()
+img_4d = tf.expand_dims(img3d, 0)
+img_4d = tf.expand_dims(img_3d, 0)
+print(img_4d.get_shape())
+print(img_4d.get_shape().as_list())
+mean = tf.placeholder(tf.float32, name='mean')
+sigma = tf.placeholder(tf.float32, name='sigma')
+ksize = tf.placeholder(tf.int32, name='ksize')
+x = tf.linspace(-3.0, 3.0, ksize)
+z = (tf.exp(tf.neg(tf.pow(x-mean, 2.0) /
+(2.0 * tf.pow(sigma, 2.0))))) * (1.0 / (sigma * tf.sqrt(2.0 * 3.141592)))
+z_2d = tf.matmul(tf.reshape(z, tf.pack([ksize, 1])), tf.reshape(z, tf.pack([1, ksize])))
+ys = tf.sin(x)
+ys = tf.reshape(ys, tf.pack([ksize,1]))
+ones = tf.ones(tf.pack((1, ksize)))
+wave  = tf.matmul(ys, ones)
+gabor = tf.mul(wave, z_2d)
+gabor_4d = tf.reshape(gabor, tf.pack([ksize,ksize, 1,1]))
+gabor_4d = tf.reshape(gabor, tf.pack([ksize, ksize,1,1]))
+convolved = tf.nn.conv2d(img_4d, z_4d, strides=[1, 1, 1, 1], padding='SAME', name='convolved')
+convolved_img = convolved[0,:,:,0]
+res = convolved_img.eval(feed_dict={
+img: data.camera, mean:0.0, sigma:1.0, ksize:100})
+res = convolved_img.eval(feed_dict={
+img: data.camera(), mean:0.0, sigma:1.0, ksize:100})
+imshow(res, cmap='gray')
+imshow(res, cmap='gray')
+convolved = tf.nn.conv2d(img_4d, gabor_4d, strides=[1, 1, 1, 1], padding='SAME', name='convolved')
+convolved_img = convolved[0,:,:,0]
+res = convolved_img.eval(feed_dict={
+img: data.camera(), mean:0.0, sigma:1.0, ksize:100})
+imshow(res, cmap='gray')
+res = convolved_img.eval(feed_dict={
+img: data.camera(), mean:0.0, sigma:0.5, ksize:32})
+imshow(res, cmap='gray')

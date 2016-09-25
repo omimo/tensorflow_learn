@@ -1,0 +1,63 @@
+# coding: utf-8
+history
+%dhist
+%history
+%history
+%hist
+%pylab
+plt.style.use('ggplot')
+from libs import utils
+files = utils.get_celeb_files()
+img = plt.imread(files[50])
+ls
+imshow(img[:,:,0], cmap='gray')
+imshow(img[:,:,1], cmap='gray')
+imshow(img[:,:,3], cmap='gray')
+imshow(img[:,:,2], cmap='gray')
+imgs = utils.get_celeb_imgs()
+plt.imshow(imgs[0])
+data = np.array(imgs)
+data.shape
+imgs
+imgs.shape
+imgs?
+data?
+mean_img = np.mean(data, axis = 0)
+imshow(mean_img)
+imshow(mean_img.astype(np.uint8))
+std_img = np.std(data, axis = 0)
+imshow(std_img.astype(np.uint8))
+imshow(np.mean(std_img, axis=2).astype(np.uint8))
+flattened = data.ravel()
+flattened.shape
+hist(flattened,255)
+plt.hist(flattened,255)
+plt.close('all')
+plt.hist(flattened,255)
+plt.hist(flattened.ravel(),255)
+flattened.shape
+flattened.ravel()shape
+flattened.ravel().shape
+bins = 20
+fig, axs = plt.subplots(1, 3, figsize=(12,6), sharey=True, sharex=True)
+axs[0].hist((data[0]).ravel(), bins)
+axs[0].set_title('img distribution')
+axs[1].hist((mean_img).ravel(),bins)
+axs[1].set_title('mean distribution')
+axs[2].hist((data[0] - mean_img).ravel(),bins)
+axs[2].set_title('img - mean distribution')
+fig, axs = plt.subplots(1, 3, figsize=(12,6), sharey=True, sharex=True)
+axs[0].hist((data[0] - mean_img).ravel(),bins)
+axs[0].set_title('img - mean distribution')
+axs[2].hist((data[0]swswdwdwddwdwdwdwsdsdsdsdddwddededwd - medsddwdwdwas_img).ravel(),bins)
+axs[1].hist((std_img).ravel(),bins)
+axs[1].set_title('std distribution')
+axs[2].hist(((data[0] - mean_img)/std_img).ravel(),bins)
+axs[2].set_title('norm distribution')
+axs[2].set_xlim([-10,10])
+%save sess1_p1_7
+%save?
+%save -r sess1_p1_7
+%history
+%hist
+%save -r sess1_p1_7 1 62

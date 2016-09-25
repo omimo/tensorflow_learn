@@ -1,5 +1,7 @@
+img_align_celeba/
 MNIST_data/
 
+*.png
 
 # Created by https://www.gitignore.io/api/python,ipythonnotebook,code
 
